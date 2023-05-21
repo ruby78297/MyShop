@@ -60,7 +60,11 @@ const ProductScreen = () => {
                 <ListGroup.Item>
                   <Rating
                     value={product.rating}
-                    text={`${product.numReviews} reviews`}
+                    text={
+                      product.numReviews
+                        ? `${product.numReviews} reviews`
+                        : "No reviews"
+                    }
                   />
                 </ListGroup.Item>
                 <ListGroup.Item>Price: ${product.price}</ListGroup.Item>

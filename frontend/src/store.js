@@ -13,9 +13,26 @@ const reducer = combineReducers({
   cart: cartReducer,
 });
 
-const cartItemsFromStorage = localStorage.getItem("cartItems")
-  ? JSON.parse(localStorage.getItem("cartItems"))
-  : [];
+// const cartItemsFromStorage = localStorage.getItem("cartItems")
+//   ? JSON.parse(localStorage.getItem("cartItems"))
+//   : [];
+
+// const initialState = {
+//   cart: { cartItems: cartItemsFromStorage },
+// };
+
+let cartItemsFromStorage = [];
+try {
+  const storedCartItems = localStorage.getItem("cartItems");
+  if (storedCartItems) {
+    cartItemsFromStorage = JSON.parse(storedCartItems);
+  }
+} catch (error) {
+  // Handle the error appropriately
+  console.error("Error parsing cartItems from localStorage:", error);
+  // You can choose to set a default value or handle the error in a different way
+  // cartItemsFromStorage = []; // Set a default value
+}
 
 const initialState = {
   cart: { cartItems: cartItemsFromStorage },

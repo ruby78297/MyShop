@@ -17,8 +17,13 @@ const App = () => {
         <Route path="/Footer" element={<Footer />} />
         <Route path="/homeScreen" element={<HomeScreen />} />
         <Route path="/product/:id" element={<ProductScreen />} />
-        <Route path="/cart/:id?" element={<CartScreen />} />
+        <Route path="/cart/:id" element={<CartScreen />} />
+        <Route path="/cart" element={<CartScreen />} />
         {/* <Route path="/navbar" element={<NavBar />} /> */}
+        {/* <Route
+          path="/cart/:id?"
+          render={(props) => <CartScreen {...props} />}
+        /> */}
       </Routes>
     </Router>
   );
